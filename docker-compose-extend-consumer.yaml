@@ -1,0 +1,18 @@
+version: "3"
+services:
+  extend-consumer:
+    build:
+      context: ./consumer
+      dockerfile: Dockerfile-extend
+    networks:
+      - wikiflow-network
+    ports:
+      - "4041:4041"
+    volumes:
+      - delta:/storage
+networks:
+  wikiflow-network:
+    external:
+      name: wikiflow-network
+volumes:
+  delta:
